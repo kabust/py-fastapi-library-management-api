@@ -25,7 +25,7 @@ def read_authors(skip: int = 0, limit: int = 100, db: Session = Depends(get_db))
 
 @app.get("/authors/{author_id}/", response_model=schemas.Author)
 def read_author(author_id: int, db: Session = Depends(get_db)):
-    author = crud.get_author(db, author_id=author_id)
+    author = crud.get_author_by_id(db, author_id=author_id)
     if author is None:
         raise HTTPException(status_code=404, detail="Author not found")
     return author

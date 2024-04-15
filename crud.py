@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import models, schemas
 
 
-def get_author(db: Session, author_id: int):
+def get_author_by_id(db: Session, author_id: int):
     return (
         db.query(models.DBAuthor).
         filter(models.DBAuthor.id == author_id).
